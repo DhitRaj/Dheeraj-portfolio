@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dheeraj Yadav | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <div class="logo">Dheeraj Yadav</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button id="themeToggle" class="theme-btn">🌙</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="section hero">
+      <div class="container home-container">
+        <div class="hero-image">
+          <img src="my pic.png" alt="Dheeraj Yadav" class="profile-img" />
+        </div>
+        <div class="hero-text">
+          <h1>Hi, I'm <span class="highlight typing-text">Dheeraj Yadav</span> 👋</h1>
+
+
+          <p>Aspiring Web Developer & Problem Solver</p>
+          <a href="#contact" class="btn">Hire Me</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h2>About Me</h2>
+        <p>I am a web development enthusiast with knowledge of data structures and competitive programming. I love building efficient digital experiences.</p>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <h2>Projects</h2>
+        <div class="projects">
+          <div class="card">
+            <h3>Portfolio Website</h3>
+            <a href="#">Live Demo</a> | <a href="https://github.com/DhitRaj/portfolio" target="_blank">GitHub</a>
+          </div>
+          <div class="card">
+            <h3>To-Do App</h3>
+            <a href="#">Live Demo</a> | <a href="https://github.com/DhitRaj/todo-app" target="_blank">GitHub</a>
+          </div>
+          <div class="card">
+            <h3>Weather App</h3>
+            <a href="#">Live Demo</a> | <a href="https://github.com/DhitRaj/weather-app" target="_blank">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="container">
+        <h2>Skills</h2>
+        <ul class="skills">
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>Python</li>
+          <li>Git & GitHub</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:dy516824@gmail.com">dy516824@gmail.com</a></p>
+        <p>GitHub: <a href="https://github.com/DhitRaj" target="_blank">github.com/DhitRaj</a></p>
+        <a href="Resume.pdf" class="btn" download>Download Resume</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Dheeraj Yadav. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      themeToggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+    });
+  </script>
+</body>
+</html>
