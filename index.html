@@ -49,19 +49,14 @@
     <section id="projects" class="section">
       <div class="container">
         <h2>Projects</h2>
-        <div class="projects">
-          <div class="card">
-            <h3>Portfolio Website</h3>
-            <a href="#">Live Demo</a> | <a href="https://github.com/DhitRaj/portfolio" target="_blank">GitHub</a>
-          </div>
-          <div class="card">
-            <h3>To-Do App</h3>
-            <a href="#">Live Demo</a> | <a href="https://github.com/DhitRaj/todo-app" target="_blank">GitHub</a>
-          </div>
-          <div class="card">
-            <h3>Weather App</h3>
-            <a href="#">Live Demo</a> | <a href="https://github.com/DhitRaj/weather-app" target="_blank">GitHub</a>
-          </div>
+        <div class="project-filters" id="projectFilters"></div>
+        <div class="projects" id="projectsGrid">
+          <div class="card-skeleton"></div>
+          <div class="card-skeleton"></div>
+          <div class="card-skeleton"></div>
+          <div class="card-skeleton"></div>
+          <div class="card-skeleton"></div>
+          <div class="card-skeleton"></div>
         </div>
       </div>
     </section>
@@ -93,13 +88,7 @@
     <p>&copy; 2025 Dheeraj Yadav. All rights reserved.</p>
   </footer>
 
-  <script>
-    const themeToggle = document.getElementById('themeToggle');
-    themeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark');
-      themeToggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
 
