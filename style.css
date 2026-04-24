@@ -68,7 +68,7 @@ ul {
 /* Sections */
 .section {
   padding: 4rem 2rem;
-  max-width: 1000px;
+  max-width: 1100px;
   margin: auto;
   scroll-margin-top: 80px;
 }
@@ -147,24 +147,265 @@ ul {
   background: #005dc2;
 }
 
-/* Projects */
+/* ─────────────────────────────────────────
+   PROJECT FILTER BUTTONS
+───────────────────────────────────────── */
+.project-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.8rem;
+}
+
+.filter-btn {
+  padding: 0.35rem 1rem;
+  border: 2px solid #0077ff;
+  border-radius: 20px;
+  background: transparent;
+  color: #0077ff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+}
+
+.filter-btn:hover {
+  background: #0077ff20;
+  transform: translateY(-1px);
+}
+
+.filter-btn.active {
+  background: #0077ff;
+  color: #fff;
+}
+
+body.dark .filter-btn {
+  border-color: #66aaff;
+  color: #66aaff;
+}
+
+body.dark .filter-btn:hover {
+  background: #66aaff20;
+}
+
+body.dark .filter-btn.active {
+  background: #66aaff;
+  color: #121212;
+}
+
+/* ─────────────────────────────────────────
+   PROJECTS GRID
+───────────────────────────────────────── */
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.8rem;
 }
 
-.card {
-  background: white;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-  transition: transform 0.3s;
-  animation: fadeIn 0.8s ease-in;
+/* ─────────────────────────────────────────
+   SKELETON LOADING CARDS
+───────────────────────────────────────── */
+.card-skeleton {
+  height: 220px;
+  border-radius: 16px;
+  background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
 }
 
-.card:hover {
-  transform: translateY(-5px);
+body.dark .card-skeleton {
+  background: linear-gradient(90deg, #2a2a2a 25%, #333 50%, #2a2a2a 75%);
+  background-size: 200% 100%;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ─────────────────────────────────────────
+   3D FLIP CARD
+───────────────────────────────────────── */
+.flip-card {
+  perspective: 1000px;
+  height: 220px;
+  cursor: pointer;
+  animation: cardEntrance 0.5s ease-out both;
+}
+
+@keyframes cardEntrance {
+  from { opacity: 0; transform: translateY(30px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.65s cubic-bezier(0.4, 0.2, 0.2, 1);
+  border-radius: 16px;
+}
+
+.flip-card.flipped .card-inner {
+  transform: rotateY(180deg) !important;
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Front face */
+.card-front {
+  background: #ffffff;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.06);
+  align-items: flex-start;
+}
+
+body.dark .card-front {
+  background: #1e1e1e;
+  border-color: rgba(255,255,255,0.08);
+}
+
+.card-lang-icon {
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: 0.2rem;
+}
+
+.card-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  color: #111;
+}
+
+body.dark .card-title {
+  color: #f0f0f0;
+}
+
+.card-lang-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0.2rem 0.7rem;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.lang-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.card-stats {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.82rem;
+  color: #666;
+  margin-top: 0.2rem;
+}
+
+body.dark .card-stats {
+  color: #aaa;
+}
+
+.card-hint {
+  font-size: 0.72rem;
+  color: #aaa;
+  margin-top: auto;
+  letter-spacing: 0.02em;
+}
+
+/* Back face */
+.card-back {
+  background: linear-gradient(135deg, #0055cc, #0099ff);
+  color: #fff;
+  transform: rotateY(180deg);
+  box-shadow: 0 8px 30px rgba(0,119,255,0.25);
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+body.dark .card-back {
+  background: linear-gradient(135deg, #003d99, #0077dd);
+}
+
+.card-desc {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  flex: 1;
+}
+
+.card-meta {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+.card-actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  transition: transform 0.15s, opacity 0.15s;
+  color: #fff;
+}
+
+.card-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.card-btn-github {
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.4);
+}
+
+.card-btn-live {
+  background: rgba(255,255,255,0.3);
+  border: 1px solid rgba(255,255,255,0.5);
+}
+
+/* Error message */
+.error-msg {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #e55;
+  padding: 2rem;
+}
+
+.error-msg a {
+  color: #0077ff;
+  text-decoration: underline;
 }
 
 /* Skills */
@@ -199,7 +440,6 @@ body.dark {
 }
 
 body.dark .header,
-body.dark .card,
 body.dark .footer {
   background: #1e1e1e;
 }
@@ -219,6 +459,8 @@ body.dark .skills li {
 body.dark .nav-links a:hover {
   color: #66aaff;
 }
+
+/* Scroll reveal */
 .hidden {
   opacity: 0;
   transform: translateY(30px);
@@ -228,6 +470,8 @@ body.dark .nav-links a:hover {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Typing cursor */
 .typing-text {
   border-right: 2px solid #0077ff;
   white-space: nowrap;
@@ -236,14 +480,8 @@ body.dark .nav-links a:hover {
   font-weight: bold;
 }
 
-
-@keyframes typing {
-  from { max-width: 0 }
-  to { max-width: 12ch }
-}
-
 @keyframes blink {
   from { border-color: transparent }
-  to { border-color: #0077ff }
+  to   { border-color: #0077ff }
 }
 
