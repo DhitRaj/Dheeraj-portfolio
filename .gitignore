@@ -1,0 +1,32 @@
+# Node dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Environment variables & secrets (Crucial)
+.env
+.env.local
+.env.*.local
+*.env
+
+# Operating System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE & Editor caches (Optional personal settings)
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.swp
+
+# Build & temporary outputs
+dist/
+build/
+out/
+.temp/
+.cache/
