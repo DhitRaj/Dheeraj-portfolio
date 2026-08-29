@@ -1,0 +1,20 @@
+{
+  "name": "dheeraj-portfolio",
+  "version": "1.0.0",
+  "description": "Dheeraj Yadav - Full Stack Developer Portfolio",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "portfolio",
+    "fullstack",
+    "developer",
+    "react",
+    "nextjs",
+    "typescript"
+  ],
+  "author": "Dheeraj Yadav",
+  "license": "MIT"
+}

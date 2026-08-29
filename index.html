@@ -1,94 +1,883 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dheeraj Yadav | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Primary Meta Tags -->
+  <title>Dheeraj Yadav | Full Stack Developer & Software Engineer</title>
+  <meta name="title" content="Dheeraj Yadav | Full Stack Developer & Software Engineer" />
+  <meta name="description" content="Portfolio of Dheeraj Yadav - Full Stack Developer experienced in Next.js, React.js, TypeScript, REST APIs, and scalable web architectures. Explore real-world work experience and production projects." />
+  <meta name="keywords" content="Dheeraj Yadav, Full Stack Developer, Software Engineer, Next.js, React.js, TypeScript, JavaScript, Tailwind CSS, REST APIs, Node.js, Azeosoft, Web Developer, Portfolio" />
+  <meta name="author" content="Dheeraj Yadav" />
+
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Dheeraj Yadav | Full Stack Developer Portfolio" />
+  <meta property="og:description" content="Full Stack Developer specialized in React, Next.js, TypeScript, and production application architecture. View experience, projects, and skills." />
+
+  <!-- Google Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Main Stylesheet -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="header">
-    <nav class="navbar">
-      <div class="logo">Dheeraj Yadav</div>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
+  <!-- Scroll Reading Progress Bar -->
+  <div id="scrollProgress" class="scroll-progress-bar"></div>
+
+  <!-- Background Ambient Glow Elements -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <!-- Header / Navigation Bar -->
+  <header class="header" id="header">
+    <div class="header-container">
+      <a href="#home" class="logo" aria-label="Dheeraj Yadav Homepage">
+        <span class="logo-bracket">&lt;</span><span class="logo-name">Dheeraj</span><span class="logo-dot">/</span><span class="logo-bracket">&gt;</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-desktop" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#home" class="nav-link active"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li><a href="#experience" class="nav-link"><i class="fa-solid fa-briefcase"></i> Experience</a></li>
+          <li><a href="#projects" class="nav-link"><i class="fa-solid fa-laptop-code"></i> Projects</a></li>
+          <li><a href="#skills" class="nav-link"><i class="fa-solid fa-code"></i> Skills</a></li>
+          <li><a href="#about" class="nav-link"><i class="fa-solid fa-user"></i> About</a></li>
+          <li><a href="#contact" class="nav-link"><i class="fa-solid fa-paper-plane"></i> Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle dark/light theme" title="Toggle Theme">
+          <i class="fa-solid fa-moon moon-icon"></i>
+          <i class="fa-solid fa-sun sun-icon"></i>
+        </button>
+
+        <a href="resume.pdf" download="Dheeraj_Yadav_Resume.pdf" class="btn btn-sm btn-outline nav-resume-btn" title="Download Resume PDF">
+          <i class="fa-solid fa-download"></i> <span>Resume</span>
+        </a>
+
+        <!-- Mobile Hamburger Button -->
+        <button id="menuToggle" class="mobile-menu-btn" aria-label="Toggle mobile menu" aria-expanded="false">
+          <span class="bar bar-1"></span>
+          <span class="bar bar-2"></span>
+          <span class="bar bar-3"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="mobile-drawer" aria-label="Mobile Navigation">
+      <ul class="mobile-nav-links">
+        <li><a href="#home" class="mobile-nav-link active"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="#experience" class="mobile-nav-link"><i class="fa-solid fa-briefcase"></i> Experience</a></li>
+        <li><a href="#projects" class="mobile-nav-link"><i class="fa-solid fa-laptop-code"></i> Projects</a></li>
+        <li><a href="#skills" class="mobile-nav-link"><i class="fa-solid fa-code"></i> Skills & Tech</a></li>
+        <li><a href="#about" class="mobile-nav-link"><i class="fa-solid fa-user"></i> About Me</a></li>
+        <li><a href="#contact" class="mobile-nav-link"><i class="fa-solid fa-paper-plane"></i> Contact</a></li>
       </ul>
-      <button id="themeToggle" class="theme-btn">🌙</button>
-    </nav>
+      <div class="mobile-drawer-footer">
+        <a href="resume.pdf" download="Dheeraj_Yadav_Resume.pdf" class="btn btn-primary btn-block">
+          <i class="fa-solid fa-download"></i> Download Resume (PDF)
+        </a>
+      </div>
+    </div>
   </header>
 
   <main>
-    <section id="home" class="section hero">
-      <div class="container home-container">
-        <div class="hero-image">
-          <img src="my pic.png" alt="Dheeraj Yadav" class="profile-img" />
+    <!-- HERO SECTION -->
+    <section id="home" class="section hero-section">
+      <div class="container hero-container">
+        <!-- Hero Text Column -->
+        <div class="hero-content">
+          <div class="status-badge">
+            <span class="pulse-dot"></span>
+            <span>Open for Full-Time & High-Impact Developer Roles</span>
+          </div>
+
+          <h1 class="hero-title">
+            Hi, I'm <span class="gradient-text">Dheeraj Yadav</span> <span class="wave-emoji">👋</span>
+          </h1>
+
+          <div class="hero-role-wrapper">
+            <span class="role-prefix">I build </span>
+            <span class="typing-text highlight-role" id="typingText">Full-Stack Applications</span>
+            <span class="typing-cursor">|</span>
+          </div>
+
+          <p class="hero-description">
+            Full Stack Developer specializing in <strong>Next.js, React, TypeScript, and robust REST APIs</strong>. Experienced in engineering production seller dashboards, employee activity monitoring systems, and scalable web architectures with a focus on clean code and intuitive user experiences.
+          </p>
+
+          <!-- Hero Action Buttons -->
+          <div class="hero-cta-group">
+            <a href="#experience" class="btn btn-primary">
+              <i class="fa-solid fa-briefcase"></i> View Experience
+            </a>
+            <a href="#projects" class="btn btn-secondary">
+              <i class="fa-solid fa-rocket"></i> Explore Projects
+            </a>
+            <button id="heroResumeBtn" class="btn btn-ghost" title="Quick Preview Resume on screen">
+              <i class="fa-solid fa-file-lines"></i> Preview Resume
+            </button>
+          </div>
+
+          <!-- Social Links Quick Bar -->
+          <div class="hero-social-bar">
+            <span class="social-label">Quick Connect:</span>
+            <div class="social-icons">
+              <a href="https://github.com/DhitRaj" target="_blank" rel="noopener noreferrer" class="social-icon" title="GitHub Profile">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/dhiraj-yadav-31688421b" target="_blank" rel="noopener noreferrer" class="social-icon" title="LinkedIn Profile">
+                <i class="fa-brands fa-linkedin"></i>
+              </a>
+              <a href="mailto:dy516824@gmail.com" class="social-icon" title="Email Dheeraj">
+                <i class="fa-solid fa-envelope"></i>
+              </a>
+              <button class="social-icon copy-email-btn" data-email="dy516824@gmail.com" title="Copy Email Address">
+                <i class="fa-regular fa-copy"></i>
+              </button>
+            </div>
+          </div>
         </div>
-        <div class="hero-text">
-          <h1>Hi, I'm <span class="highlight typing-text">Dheeraj Yadav</span> 👋</h1>
 
+        <!-- Hero Avatar Column -->
+        <div class="hero-visual">
+          <div class="avatar-card-wrapper">
+            <div class="avatar-glow-ring"></div>
+            <div class="avatar-card">
+              <div class="avatar-card-top-bar">
+                <span class="window-dot red"></span>
+                <span class="window-dot yellow"></span>
+                <span class="window-dot green"></span>
+                <span class="avatar-code-tag">&lt;Dheeraj.dev /&gt;</span>
+              </div>
+              <div class="avatar-img-container">
+                <img src="profile.png" alt="Dheeraj Yadav - Full Stack Developer" class="hero-avatar-img" />
+              </div>
+              <div class="avatar-status-strip">
+                <span class="pulse-dot"></span>
+                <span>Full Stack Developer &middot; Azeosoft Intern</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-          <p>Aspiring Web Developer & Problem Solver</p>
-          <a href="#contact" class="btn">Hire Me</a>
-          <a href="Dheeraj yadav resume.pdf" class="btn" download>Download Resume</a>
+      <!-- Quick Metrics Strip -->
+      <div class="container hero-metrics-strip">
+        <div class="metric-card">
+          <div class="metric-icon"><i class="fa-solid fa-building-user"></i></div>
+          <div class="metric-info">
+            <span class="metric-number">7+ Mos</span>
+            <span class="metric-label">Industry Dev Experience</span>
+          </div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon"><i class="fa-solid fa-network-wired"></i></div>
+          <div class="metric-info">
+            <span class="metric-number">Production</span>
+            <span class="metric-label">Dashboards & Trackers</span>
+          </div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon"><i class="fa-solid fa-cubes-stacked"></i></div>
+          <div class="metric-info">
+            <span class="metric-number">10+</span>
+            <span class="metric-label">Modern Tech Mastered</span>
+          </div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon"><i class="fa-solid fa-code-merge"></i></div>
+          <div class="metric-info">
+            <span class="metric-number">Clean</span>
+            <span class="metric-label">TypeScript & REST APIs</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recruiter 15-Second Cheat Sheet -->
+      <div class="container recruiter-cheat-sheet-wrapper">
+        <div class="recruiter-cheat-card">
+          <div class="cheat-card-header">
+            <div class="cheat-badge"><i class="fa-solid fa-bolt"></i> 15-Second Recruiter Brief</div>
+            <div class="cheat-status-badge">
+              <span class="pulse-dot"></span> Available for Immediate Hire
+            </div>
+          </div>
+          <div class="cheat-grid">
+            <div class="cheat-item">
+              <span class="cheat-label"><i class="fa-solid fa-laptop-code text-cyan"></i> Core Capabilities:</span>
+              <span class="cheat-val">Next.js 14, React.js, TypeScript, Tailwind CSS, REST APIs, Zod</span>
+            </div>
+            <div class="cheat-item">
+              <span class="cheat-label"><i class="fa-solid fa-briefcase text-emerald"></i> Production Experience:</span>
+              <span class="cheat-val">Azeosoft Web Technologies (Employee Trackers, Seller Dashboards)</span>
+            </div>
+            <div class="cheat-item">
+              <span class="cheat-label"><i class="fa-solid fa-brain text-amber"></i> Problem Solving:</span>
+              <span class="cheat-val">Data Structures, Algorithms, OOP, State Management & Debugging</span>
+            </div>
+            <div class="cheat-item">
+              <span class="cheat-label"><i class="fa-solid fa-paper-plane text-indigo"></i> Quick Actions:</span>
+              <div class="cheat-actions">
+                <button class="btn btn-sm btn-primary open-resume-trigger"><i class="fa-solid fa-file-lines"></i> View Resume</button>
+                <a href="#contact" class="btn btn-sm btn-secondary"><i class="fa-regular fa-envelope"></i> Contact</a>
+                <button class="btn btn-sm btn-outline share-portfolio-btn" title="Share Portfolio"><i class="fa-solid fa-share-nodes"></i> Share</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="about" class="section">
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience" class="section experience-section">
       <div class="container">
-        <h2>About Me</h2>
-        <p>I am a web development enthusiast with knowledge of data structures and competitive programming. I love building efficient digital experiences.</p>
+        <div class="section-header">
+          <span class="section-subtitle"><i class="fa-solid fa-briefcase"></i> Work History</span>
+          <h2 class="section-title">Professional <span class="gradient-text">Experience</span></h2>
+          <p class="section-desc">Hands-on experience delivering real-world production features, seller panels, and internal monitoring systems.</p>
+        </div>
+
+        <div class="experience-timeline">
+          <!-- Main Work Experience Item -->
+          <div class="timeline-item">
+            <div class="timeline-marker">
+              <div class="timeline-dot"></div>
+              <div class="timeline-line"></div>
+            </div>
+
+            <div class="timeline-content experience-card">
+              <div class="exp-card-header">
+                <div class="exp-company-info">
+                  <div class="exp-company-logo">
+                    <i class="fa-solid fa-building"></i>
+                  </div>
+                  <div>
+                    <h3 class="exp-role">Full Stack Developer Intern</h3>
+                    <h4 class="exp-company">Azeosoft Web Technologies Pvt. Ltd.</h4>
+                  </div>
+                </div>
+                <div class="exp-badge-group">
+                  <span class="exp-duration"><i class="fa-regular fa-calendar-check"></i> 10 Nov 2025 – 10 Jun 2026</span>
+                  <span class="exp-type-badge">Full-Time Internship</span>
+                </div>
+              </div>
+
+              <p class="exp-summary">
+                Contributed to the core development of enterprise web applications, internal employee monitoring platforms, and vendor e-commerce seller portals with end-to-end frontend and REST API integration.
+              </p>
+
+              <!-- Projects Worked on at Company -->
+              <div class="company-projects-grid">
+                <!-- Subproject 1: Tracker 29 -->
+                <div class="company-subproject-card">
+                  <div class="subproject-header">
+                    <div class="subproject-icon text-cyan">
+                      <i class="fa-solid fa-display"></i>
+                    </div>
+                    <div>
+                      <h5 class="subproject-title">Tracker 29 — Employee & Activity Monitoring System</h5>
+                      <span class="subproject-category">Enterprise Web & App Development</span>
+                    </div>
+                  </div>
+                  <ul class="subproject-points">
+                    <li>Developed multi-employee monitoring interfaces to track active work hours, employee statuses, and productivity logs.</li>
+                    <li>Built screen recording workflows with configurable capture duration and automated random-interval screenshot capture.</li>
+                    <li>Engineered administrative oversight views allowing management to audit employee activity streams and view captured records securely.</li>
+                    <li>Collaborated across web applications and app-based client modules for seamless real-time data sync.</li>
+                  </ul>
+                  <div class="subproject-tags">
+                    <span class="tech-tag">Employee Tracking</span>
+                    <span class="tech-tag">Screen Recording</span>
+                    <span class="tech-tag">Admin Dashboard</span>
+                    <span class="tech-tag">Activity Monitoring</span>
+                  </div>
+                </div>
+
+                <!-- Subproject 2: D2C Seller Panel -->
+                <div class="company-subproject-card">
+                  <div class="subproject-header">
+                    <div class="subproject-icon text-amber">
+                      <i class="fa-solid fa-store"></i>
+                    </div>
+                    <div>
+                      <h5 class="subproject-title">D2C Seller Panel / DirectToCart</h5>
+                      <span class="subproject-category">Vendor E-Commerce Dashboard</span>
+                    </div>
+                  </div>
+                  <ul class="subproject-points">
+                    <li>Engineered product management workflows supporting product variations, multi-image upload handling, inventory stock tracking, and live status toggles.</li>
+                    <li>Built order management modules and analytics KPI dashboards displaying order pipelines, fulfillment statuses, and revenue metrics.</li>
+                    <li>Developed seller profile management, bank payout details, and warehouse pickup address configurations.</li>
+                    <li>Implemented strict schema validation using <strong>React Hook Form</strong> and <strong>Zod</strong> with robust token authentication and modular REST API services.</li>
+                  </ul>
+                  <div class="subproject-tags">
+                    <span class="tech-tag">Next.js</span>
+                    <span class="tech-tag">React.js</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">Tailwind CSS</span>
+                    <span class="tech-tag">React Hook Form</span>
+                    <span class="tech-tag">Zod</span>
+                    <span class="tech-tag">Radix UI</span>
+                    <span class="tech-tag">REST APIs</span>
+                  </div>
+                </div>
+
+                <!-- Subproject 3: WebJF & Company Web Applications -->
+                <div class="company-subproject-card">
+                  <div class="subproject-header">
+                    <div class="subproject-icon text-emerald">
+                      <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <div>
+                      <h5 class="subproject-title">WebJF & Company Web/App Development</h5>
+                      <span class="subproject-category">Web Platform & Client Solutions</span>
+                    </div>
+                  </div>
+                  <ul class="subproject-points">
+                    <li>Contributed to feature delivery and responsive UI component development on the <strong>WebJF</strong> project.</li>
+                    <li>Collaborated on building company client-facing web applications and mobile-responsive modules.</li>
+                    <li>Diagnosed frontend bugs, optimized state updates, and streamlined API response payload handling.</li>
+                  </ul>
+                  <div class="subproject-tags">
+                    <span class="tech-tag">Full Stack Development</span>
+                    <span class="tech-tag">Responsive UI</span>
+                    <span class="tech-tag">REST API Integration</span>
+                    <span class="tech-tag">Debugging</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="projects" class="section">
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="section projects-section">
       <div class="container">
-        <h2>Projects</h2>
-        <div class="project-filters" id="projectFilters"></div>
-        <div class="projects" id="projectsGrid">
-          <div class="card-skeleton"></div>
-          <div class="card-skeleton"></div>
+        <div class="section-header">
+          <span class="section-subtitle"><i class="fa-solid fa-layer-group"></i> Practical Work</span>
+          <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+          <p class="section-desc">Detailed showcases of real-world applications with genuine, live-deployed previews and verifiable GitHub source repositories.</p>
+        </div>
+
+        <!-- Search & Filter Controls -->
+        <div class="project-controls-wrapper">
+          <div class="project-search-box">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="projectSearchInput" class="project-search-input" placeholder="Search projects by tech, keyword, or feature (e.g. Next.js, TypeScript, REST, E-Commerce)..." aria-label="Search projects" />
+            <button id="clearSearchBtn" class="clear-search-btn" title="Clear search" style="display: none;">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <div class="project-filters" id="projectFilters">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="fullstack">Full Stack & Web Apps</button>
+            <button class="filter-btn" data-filter="frontend">Frontend & React</button>
+            <button class="filter-btn" data-filter="tools">Portals & Utilities</button>
+          </div>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid" id="projectsGrid">
+          <!-- Rendered dynamically by script.js with verified live links -->
           <div class="card-skeleton"></div>
           <div class="card-skeleton"></div>
           <div class="card-skeleton"></div>
           <div class="card-skeleton"></div>
         </div>
+
+        <!-- GitHub Profile CTA -->
+        <div class="projects-github-cta">
+          <div class="cta-inner">
+            <div class="cta-icon"><i class="fa-brands fa-github"></i></div>
+            <div class="cta-text">
+              <h4>Explore More Code on GitHub</h4>
+              <p>Browse additional repositories, full-stack experiments, and DSA solutions on my profile.</p>
+            </div>
+          </div>
+          <a href="https://github.com/DhitRaj" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+            <i class="fa-brands fa-github"></i> Visit @DhitRaj
+          </a>
+        </div>
       </div>
     </section>
 
-    <section id="skills" class="section">
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="section skills-section">
       <div class="container">
-        <h2>Skills</h2>
-        <ul class="skills">
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>JavaScript</li>
-          <li>Python</li>
-          <li>Git & GitHub</li>
-        </ul>
+        <div class="section-header">
+          <span class="section-subtitle"><i class="fa-solid fa-sliders"></i> Technical Arsenal</span>
+          <h2 class="section-title">Skills & <span class="gradient-text">Expertise</span></h2>
+          <p class="section-desc">Core languages, frameworks, validation libraries, and computer science foundations I use to build production systems.</p>
+        </div>
+
+        <!-- Recruiter Highlights Strip -->
+        <div class="recruiter-highlights-container">
+          <div class="highlight-chip">
+            <i class="fa-solid fa-layer-group text-cyan"></i>
+            <span>Production E-Commerce & Dashboards</span>
+          </div>
+          <div class="highlight-chip">
+            <i class="fa-solid fa-code text-indigo"></i>
+            <span>Type-Safe Next.js & React</span>
+          </div>
+          <div class="highlight-chip">
+            <i class="fa-solid fa-shield-virus text-emerald"></i>
+            <span>Zod & Schema Validation</span>
+          </div>
+          <div class="highlight-chip">
+            <i class="fa-solid fa-brain text-amber"></i>
+            <span>Data Structures & DSA</span>
+          </div>
+        </div>
+
+        <div class="skills-categories-grid">
+          <!-- Category 1: Frontend Development -->
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <div class="category-icon front-icon"><i class="fa-brands fa-react"></i></div>
+              <div>
+                <h3>Frontend Engineering</h3>
+                <p>Modern component architecture & responsive interfaces</p>
+              </div>
+            </div>
+            <div class="skills-tag-cloud">
+              <div class="skill-pill"><i class="fa-brands fa-react text-cyan"></i> React.js</div>
+              <div class="skill-pill"><i class="fa-solid fa-n text-light"></i> Next.js</div>
+              <div class="skill-pill"><i class="fa-brands fa-js text-blue"></i> TypeScript</div>
+              <div class="skill-pill"><i class="fa-brands fa-square-js text-yellow"></i> JavaScript (ES6+)</div>
+              <div class="skill-pill"><i class="fa-solid fa-wind text-cyan"></i> Tailwind CSS</div>
+              <div class="skill-pill"><i class="fa-brands fa-html5 text-orange"></i> HTML5 & Semantic Web</div>
+              <div class="skill-pill"><i class="fa-brands fa-css3-alt text-blue"></i> CSS3 / Modern Flex & Grid</div>
+              <div class="skill-pill"><i class="fa-solid fa-mobile-screen text-emerald"></i> Mobile-First Responsive UI</div>
+            </div>
+          </div>
+
+          <!-- Category 2: Backend & REST APIs -->
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <div class="category-icon back-icon"><i class="fa-solid fa-server"></i></div>
+              <div>
+                <h3>Backend & API Integration</h3>
+                <p>Server-side logic, data modeling & client-server comms</p>
+              </div>
+            </div>
+            <div class="skills-tag-cloud">
+              <div class="skill-pill"><i class="fa-brands fa-node-js text-green"></i> Node.js</div>
+              <div class="skill-pill"><i class="fa-solid fa-network-wired text-purple"></i> RESTful APIs</div>
+              <div class="skill-pill"><i class="fa-solid fa-lock text-amber"></i> JWT & Session Auth</div>
+              <div class="skill-pill"><i class="fa-brands fa-python text-python"></i> Python</div>
+              <div class="skill-pill"><i class="fa-solid fa-database text-cyan"></i> JSON / Data Schemas</div>
+              <div class="skill-pill"><i class="fa-solid fa-arrows-split-up-and-left text-emerald"></i> State & Context Management</div>
+            </div>
+          </div>
+
+          <!-- Category 3: Architecture, Forms & UI Components -->
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <div class="category-icon tool-icon"><i class="fa-solid fa-cubes"></i></div>
+              <div>
+                <h3>Architecture & Ecosystem</h3>
+                <p>Form handling, schema validation & component primitives</p>
+              </div>
+            </div>
+            <div class="skills-tag-cloud">
+              <div class="skill-pill"><i class="fa-solid fa-file-pen text-rose"></i> React Hook Form</div>
+              <div class="skill-pill"><i class="fa-solid fa-shield-virus text-indigo"></i> Zod Validation</div>
+              <div class="skill-pill"><i class="fa-solid fa-shapes text-cyan"></i> Radix UI Primitives</div>
+              <div class="skill-pill"><i class="fa-solid fa-icons text-amber"></i> Lucide & FontAwesome Icons</div>
+              <div class="skill-pill"><i class="fa-brands fa-git-alt text-orange"></i> Git Version Control</div>
+              <div class="skill-pill"><i class="fa-brands fa-github text-light"></i> GitHub Workflows</div>
+              <div class="skill-pill"><i class="fa-brands fa-chrome text-yellow"></i> Chrome DevTools & Debugging</div>
+              <div class="skill-pill"><i class="fa-solid fa-paper-plane text-emerald"></i> Postman / API Testing</div>
+            </div>
+          </div>
+
+          <!-- Category 4: Computer Science & Problem Solving -->
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <div class="category-icon cs-icon"><i class="fa-solid fa-brain"></i></div>
+              <div>
+                <h3>CS Fundamentals & Problem Solving</h3>
+                <p>Algorithmic rigor, data structures & clean code principles</p>
+              </div>
+            </div>
+            <div class="skills-tag-cloud">
+              <div class="skill-pill"><i class="fa-solid fa-sitemap text-accent"></i> Data Structures</div>
+              <div class="skill-pill"><i class="fa-solid fa-gears text-amber"></i> Algorithms</div>
+              <div class="skill-pill"><i class="fa-solid fa-cubes-stacked text-cyan"></i> Object-Oriented Programming (OOP)</div>
+              <div class="skill-pill"><i class="fa-solid fa-gauge-high text-emerald"></i> Time & Space Complexity</div>
+              <div class="skill-pill"><i class="fa-solid fa-bug-slash text-rose"></i> Root-Cause Debugging</div>
+              <div class="skill-pill"><i class="fa-solid fa-code text-indigo"></i> C / C++ Foundations</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Technical Craft / Code Patterns Showcase -->
+        <div class="code-playground-wrapper">
+          <div class="code-playground-card">
+            <div class="playground-top-bar">
+              <div class="terminal-dots">
+                <span class="window-dot red"></span>
+                <span class="window-dot yellow"></span>
+                <span class="window-dot green"></span>
+              </div>
+              <div class="code-tabs" id="codePlaygroundTabs">
+                <button class="code-tab-btn active" data-tab="zod">
+                  <i class="fa-solid fa-shield-virus text-indigo"></i> d2c-schema.ts
+                </button>
+                <button class="code-tab-btn" data-tab="api">
+                  <i class="fa-brands fa-js text-blue"></i> api-client.ts
+                </button>
+                <button class="code-tab-btn" data-tab="dsa">
+                  <i class="fa-solid fa-brain text-amber"></i> dsa-traversal.ts
+                </button>
+              </div>
+              <button class="copy-code-snippet-btn" id="copySnippetBtn" title="Copy code snippet">
+                <i class="fa-regular fa-copy"></i>
+              </button>
+            </div>
+
+            <div class="code-editor-body">
+              <pre class="code-pre"><code id="codeSnippetContent" class="code-snippet"></code></pre>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="contact" class="section">
+    <!-- ABOUT ME SECTION -->
+    <section id="about" class="section about-section">
       <div class="container">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:dy516824@gmail.com">dy516824@gmail.com</a></p>
-        <p>GitHub: <a href="https://github.com/DhitRaj" target="_blank">github.com/DhitRaj</a></p>
-        
+        <div class="section-header">
+          <span class="section-subtitle"><i class="fa-regular fa-id-card"></i> Background & Philosophy</span>
+          <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+          <p class="section-desc">Developer with real industry exposure and a strong foundation in full-stack web engineering.</p>
+        </div>
+
+        <div class="about-grid">
+          <!-- Bio Story Card -->
+          <div class="about-card story-card">
+            <div class="card-glow"></div>
+            <div class="card-icon-badge">
+              <i class="fa-solid fa-terminal"></i>
+            </div>
+            <h3>Who I Am & What I Do</h3>
+            <p>
+              I am a <strong>Full Stack Developer</strong> who loves building real-world digital applications that solve tangible problems. From building vendor seller portals handling product variants and orders to developing employee activity monitoring dashboards, I enjoy turning functional requirements into clean, scalable code.
+            </p>
+            <p>
+              My development approach emphasizes <strong>type safety (TypeScript), modular component architecture, robust API error handling, and clean responsive UI design</strong>. I combine algorithmic problem-solving with practical framework mastery in React and Next.js.
+            </p>
+            
+            <div class="about-highlights-list">
+              <div class="highlight-item">
+                <i class="fa-solid fa-circle-check text-success"></i>
+                <span>Production experience delivering seller portals and tracking systems at Azeosoft</span>
+              </div>
+              <div class="highlight-item">
+                <i class="fa-solid fa-circle-check text-success"></i>
+                <span>Strong grasp of React, Next.js, TypeScript, and modern frontend state management</span>
+              </div>
+              <div class="highlight-item">
+                <i class="fa-solid fa-circle-check text-success"></i>
+                <span>Deep understanding of Data Structures, Algorithms, and clean code principles</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Information & Interests Card -->
+          <div class="about-card info-card">
+            <div class="card-glow"></div>
+            <h3>Quick Details</h3>
+            
+            <div class="info-list">
+              <div class="info-row">
+                <span class="info-key"><i class="fa-regular fa-envelope"></i> Email:</span>
+                <a href="mailto:dy516824@gmail.com" class="info-val">dy516824@gmail.com</a>
+              </div>
+              <div class="info-row">
+                <span class="info-key"><i class="fa-brands fa-github"></i> GitHub:</span>
+                <a href="https://github.com/DhitRaj" target="_blank" rel="noopener noreferrer" class="info-val">github.com/DhitRaj</a>
+              </div>
+              <div class="info-row">
+                <span class="info-key"><i class="fa-brands fa-linkedin text-blue"></i> LinkedIn:</span>
+                <a href="https://www.linkedin.com/in/dhiraj-yadav-31688421b" target="_blank" rel="noopener noreferrer" class="info-val">in/dhiraj-yadav-31688421b</a>
+              </div>
+              <div class="info-row">
+                <span class="info-key"><i class="fa-solid fa-location-dot"></i> Location:</span>
+                <span class="info-val">India</span>
+              </div>
+              <div class="info-row">
+                <span class="info-key"><i class="fa-solid fa-briefcase"></i> Recent Role:</span>
+                <span class="info-val">Full Stack Intern @ Azeosoft</span>
+              </div>
+            </div>
+
+            <div class="hobbies-wrapper">
+              <h4>Personal Interests</h4>
+              <div class="hobby-tags">
+                <span class="hobby-tag"><i class="fa-solid fa-laptop-code"></i> Building Web Apps</span>
+                <span class="hobby-tag"><i class="fa-solid fa-sitemap"></i> DSA Problem Solving</span>
+                <span class="hobby-tag"><i class="fa-solid fa-baseball-bat-ball"></i> Cricket</span>
+                <span class="hobby-tag"><i class="fa-solid fa-dumbbell"></i> Fitness</span>
+                <span class="hobby-tag"><i class="fa-solid fa-music"></i> Music</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle"><i class="fa-regular fa-paper-plane"></i> Let's Connect</span>
+          <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
+          <p class="section-desc">Looking to hire a dedicated Full Stack Developer or collaborate on a project? Let's talk!</p>
+        </div>
+
+        <div class="contact-layout">
+          <!-- Contact Channels Column -->
+          <div class="contact-cards-column">
+            <!-- Email Card -->
+            <div class="contact-method-card">
+              <div class="contact-icon-box email-icon-box">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div class="contact-details">
+                <h4>Direct Email</h4>
+                <a href="mailto:dy516824@gmail.com" class="contact-link">dy516824@gmail.com</a>
+              </div>
+              <button class="copy-btn copy-email-btn" data-email="dy516824@gmail.com" title="Copy to clipboard">
+                <i class="fa-regular fa-copy"></i>
+              </button>
+            </div>
+
+            <!-- LinkedIn Card -->
+            <div class="contact-method-card">
+              <div class="contact-icon-box" style="background: rgba(0, 119, 181, 0.12); color: #0077b5;">
+                <i class="fa-brands fa-linkedin"></i>
+              </div>
+              <div class="contact-details">
+                <h4>LinkedIn</h4>
+                <a href="https://www.linkedin.com/in/dhiraj-yadav-31688421b" target="_blank" rel="noopener noreferrer" class="contact-link">in/dhiraj-yadav-31688421b</a>
+              </div>
+              <a href="https://www.linkedin.com/in/dhiraj-yadav-31688421b" target="_blank" rel="noopener noreferrer" class="link-arrow-btn" title="Open LinkedIn Profile">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+
+            <!-- GitHub Card -->
+            <div class="contact-method-card">
+              <div class="contact-icon-box github-icon-box">
+                <i class="fa-brands fa-github"></i>
+              </div>
+              <div class="contact-details">
+                <h4>GitHub Profile</h4>
+                <a href="https://github.com/DhitRaj" target="_blank" rel="noopener noreferrer" class="contact-link">github.com/DhitRaj</a>
+              </div>
+              <a href="https://github.com/DhitRaj" target="_blank" rel="noopener noreferrer" class="link-arrow-btn" title="Open GitHub">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+
+            <!-- Quick Status Card -->
+            <div class="contact-method-card status-card">
+              <div class="contact-icon-box status-icon-box">
+                <i class="fa-solid fa-circle-check"></i>
+              </div>
+              <div class="contact-details">
+                <h4>Current Availability</h4>
+                <p class="status-text">Available for Full-Time Full Stack roles, Frontend/Backend positions & remote opportunities.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Message Form -->
+          <div class="contact-form-card">
+            <div class="card-glow"></div>
+            <h3>Send a Direct Message</h3>
+            <form id="contactForm" class="contact-form" novalidate>
+              <div id="formSuccessMessage" class="form-success-banner" style="display: none;">
+                <i class="fa-solid fa-circle-check"></i>
+                <div>
+                  <strong>Message Sent Successfully!</strong>
+                  <p>Thank you for reaching out. Your message has been delivered directly to Dheeraj's inbox.</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="contactName">Your Name</label>
+                <div class="input-wrapper">
+                  <i class="fa-regular fa-user form-input-icon"></i>
+                  <input type="text" id="contactName" name="name" class="form-input" placeholder="e.g. Hiring Manager / Recruiter" required />
+                </div>
+                <span class="form-error" id="nameError"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="contactEmail">Your Email</label>
+                <div class="input-wrapper">
+                  <i class="fa-regular fa-envelope form-input-icon"></i>
+                  <input type="email" id="contactEmail" name="email" class="form-input" placeholder="name@company.com" required />
+                </div>
+                <span class="form-error" id="emailError"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="contactSubject">Subject</label>
+                <div class="input-wrapper">
+                  <i class="fa-regular fa-bookmark form-input-icon"></i>
+                  <input type="text" id="contactSubject" name="subject" class="form-input" placeholder="Job Opportunity / Interview Invitation" required />
+                </div>
+                <span class="form-error" id="subjectError"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="contactMessage">Message</label>
+                <div class="input-wrapper">
+                  <i class="fa-regular fa-comment-dots form-input-icon textarea-icon"></i>
+                  <textarea id="contactMessage" name="message" class="form-input form-textarea" rows="4" placeholder="Hi Dheeraj, we came across your portfolio and would like to discuss..." required></textarea>
+                </div>
+                <span class="form-error" id="messageError"></span>
+              </div>
+
+              <button type="submit" id="submitBtn" class="btn btn-primary btn-block">
+                <i class="fa-solid fa-paper-plane"></i> Send Message
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer class="footer">
-    <p>&copy; 2025 Dheeraj Yadav. All rights reserved.</p>
+    <div class="container footer-container">
+      <div class="footer-top">
+        <a href="#home" class="footer-logo">
+          <span class="logo-bracket">&lt;</span><span class="logo-name">Dheeraj</span><span class="logo-dot">/</span><span class="logo-bracket">&gt;</span>
+        </a>
+        <p class="footer-tagline">Building production-grade web applications with modern architecture and clean code.</p>
+        <div class="footer-socials">
+          <a href="https://github.com/DhitRaj" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/dhiraj-yadav-31688421b" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="mailto:dy516824@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+          <a href="resume.pdf" download="Dheeraj_Yadav_Resume.pdf" class="footer-social-btn" aria-label="Download Resume PDF" title="Download Resume (PDF)"><i class="fa-solid fa-file-arrow-down"></i></a>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="currentYear">2026</span> Dheeraj Yadav. All rights reserved.</p>
+        <p class="built-with">Full Stack Developer &middot; React &middot; Next.js &middot; TypeScript &middot; REST APIs</p>
+      </div>
+    </div>
   </footer>
 
+  <!-- RESUME PREVIEW MODAL -->
+  <div id="resumeModal" class="custom-modal-overlay" aria-hidden="true" role="dialog" aria-label="Resume Preview">
+    <div class="custom-modal-dialog resume-modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title-box">
+          <i class="fa-solid fa-file-pdf text-rose"></i>
+          <h4>Dheeraj Yadav &middot; Resume</h4>
+        </div>
+        <div class="modal-actions">
+          <a href="resume.pdf" download="Dheeraj_Yadav_Resume.pdf" class="btn btn-sm btn-primary" title="Download PDF File">
+            <i class="fa-solid fa-download"></i> Download PDF
+          </a>
+          <a href="resume.pdf?preview=1" target="_blank" rel="noopener noreferrer" class="modal-icon-btn" title="Open PDF in new tab">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+          <button class="modal-close-btn" id="closeResumeModalBtn" aria-label="Close modal">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+      <div class="modal-body resume-modal-body">
+        <iframe src="resume.pdf?preview=1" class="resume-iframe-viewer" title="Dheeraj Yadav Resume Document"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- SYSTEM ARCHITECTURE DEEP DIVE MODAL -->
+  <div id="architectureModal" class="custom-modal-overlay" aria-hidden="true" role="dialog" aria-label="System Architecture Breakdown">
+    <div class="custom-modal-dialog arch-modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title-box">
+          <i class="fa-solid fa-sitemap text-cyan"></i>
+          <h4 id="archModalTitle">System Architecture & Engineering Breakdown</h4>
+        </div>
+        <button class="modal-close-btn" id="closeArchModalBtn" aria-label="Close modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="modal-body" id="archModalContent">
+        <!-- Injected dynamically via script.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- SHARE PORTFOLIO MODAL -->
+  <div id="shareModal" class="custom-modal-overlay" aria-hidden="true" role="dialog" aria-label="Share Portfolio">
+    <div class="custom-modal-dialog share-modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title-box">
+          <i class="fa-solid fa-share-nodes text-primary"></i>
+          <h4>Share Dheeraj's Portfolio</h4>
+        </div>
+        <button class="modal-close-btn" id="closeShareModalBtn" aria-label="Close modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="modal-body share-modal-body">
+        <p class="share-desc">Share this portfolio with your engineering team, hiring manager, or technical recruiters.</p>
+        
+        <div class="share-url-box">
+          <input type="text" id="shareUrlInput" class="share-url-input" value="https://github.com/DhitRaj/Dheeraj-portfolio" readonly />
+          <button id="copyShareUrlBtn" class="btn btn-sm btn-primary">
+            <i class="fa-regular fa-copy"></i> Copy
+          </button>
+        </div>
+
+        <div class="share-social-links">
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://github.com/DhitRaj/Dheeraj-portfolio" target="_blank" rel="noopener noreferrer" class="share-btn linkedin-share">
+            <i class="fa-brands fa-linkedin"></i> Share on LinkedIn
+          </a>
+          <a href="https://api.whatsapp.com/send?text=Check%20out%20Dheeraj%20Yadav%27s%20Full%20Stack%20Developer%20Portfolio:%20https://github.com/DhitRaj/Dheeraj-portfolio" target="_blank" rel="noopener noreferrer" class="share-btn whatsapp-share">
+            <i class="fa-brands fa-whatsapp"></i> Share on WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll-to-Top Floating Button -->
+  <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll back to top" title="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Toast Notification Popup Box -->
+  <div id="toast" class="toast-notification" role="alert" aria-live="polite">
+    <i class="fa-solid fa-circle-check toast-icon"></i>
+    <span id="toastMessage" class="toast-msg">Email copied to clipboard!</span>
+  </div>
+
+  <!-- JavaScript Script -->
   <script src="script.js"></script>
 </body>
 </html>
-
