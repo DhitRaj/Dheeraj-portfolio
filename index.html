@@ -36,9 +36,14 @@
   <!-- Header / Navigation Bar -->
   <header class="header" id="header">
     <div class="header-container">
-      <a href="#home" class="logo" aria-label="Dheeraj Yadav Homepage">
-        <span class="logo-bracket">&lt;</span><span class="logo-name">Dheeraj</span><span class="logo-dot">/</span><span class="logo-bracket">&gt;</span>
-      </a>
+      <div class="logo-wrapper">
+        <a href="#home" class="logo" aria-label="Dheeraj Yadav Homepage">
+          <span class="logo-bracket">&lt;</span><span class="logo-name">Dheeraj</span><span class="logo-dot">/</span><span class="logo-bracket">&gt;</span>
+        </a>
+        <span class="nav-status-badge" title="Open for Full-Time Developer Roles">
+          <span class="pulse-dot"></span> Available
+        </span>
+      </div>
 
       <!-- Desktop Navigation -->
       <nav class="nav-desktop" aria-label="Main Navigation">
@@ -160,7 +165,7 @@
                 <span class="avatar-code-tag">&lt;Dheeraj.dev /&gt;</span>
               </div>
               <div class="avatar-img-container">
-                <img src="profile.png" alt="Dheeraj Yadav - Full Stack Developer" class="hero-avatar-img" />
+                <img src="profile-opt.jpg" alt="Dheeraj Yadav - Full Stack Developer" class="hero-avatar-img" loading="eager" decoding="async" />
               </div>
               <div class="avatar-status-strip">
                 <span class="pulse-dot"></span>
@@ -375,7 +380,8 @@
         <div class="project-controls-wrapper">
           <div class="project-search-box">
             <i class="fa-solid fa-magnifying-glass search-icon"></i>
-            <input type="text" id="projectSearchInput" class="project-search-input" placeholder="Search projects by tech, keyword, or feature (e.g. Next.js, TypeScript, REST, E-Commerce)..." aria-label="Search projects" />
+            <input type="text" id="projectSearchInput" class="project-search-input" placeholder="Search projects by tech, keyword, or feature (e.g. Next.js, TypeScript, REST)..." aria-label="Search projects" />
+            <span class="search-hotkey-hint" title="Press '/' or Ctrl+K to search"><kbd>/</kbd></span>
             <button id="clearSearchBtn" class="clear-search-btn" title="Clear search" style="display: none;">
               <i class="fa-solid fa-xmark"></i>
             </button>

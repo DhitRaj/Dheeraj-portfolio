@@ -491,14 +491,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const searchInput = document.getElementById('projectSearchInput');
     const clearBtn = document.getElementById('clearSearchBtn');
+    const hotkeyHint = document.getElementById('searchHotkeyHint');
 
     if (searchInput) {
       searchInput.addEventListener('input', (e) => {
         currentSearchQuery = e.target.value;
-        if (clearBtn) {
-          clearBtn.style.display = currentSearchQuery ? 'flex' : 'none';
-        }
+        if (clearBtn) clearBtn.style.display = currentSearchQuery ? 'flex' : 'none';
+        if (hotkeyHint) hotkeyHint.style.display = currentSearchQuery ? 'none' : 'flex';
         applyProjectFilters();
+      });
+
+      searchInput.addEventListener('focus', () => {
+        if (hotkeyHint) hotkeyHint.style.display = 'none';
+      });
+
+      searchInput.addEventListener('blur', () => {
+        if (!searchInput.value && hotkeyHint) hotkeyHint.style.display = 'flex';
       });
     }
 
@@ -507,10 +515,23 @@ document.addEventListener('DOMContentLoaded', () => {
         searchInput.value = '';
         currentSearchQuery = '';
         clearBtn.style.display = 'none';
+        if (hotkeyHint) hotkeyHint.style.display = 'flex';
         applyProjectFilters();
         searchInput.focus();
       });
     }
+
+    // Global Shortcut ('/' or Ctrl+K / Cmd+K) to focus search bar
+    document.addEventListener('keydown', (e) => {
+      const isInput = ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName);
+      if ((e.key === '/' && !isInput) || ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k')) {
+        e.preventDefault();
+        if (searchInput) {
+          searchInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          searchInput.focus();
+        }
+      }
+    });
   }
 
   // --------------------------------------------------------------------------
