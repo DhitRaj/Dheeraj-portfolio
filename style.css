@@ -1434,6 +1434,68 @@ body.dark .theme-toggle-btn .moon-icon {
   box-shadow: var(--card-shadow-hover);
 }
 
+/* Mini Browser Bar for Project Cards */
+.project-browser-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.4rem 0.85rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  margin-bottom: 1.25rem;
+  font-family: var(--font-mono);
+}
+
+.browser-dots {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.browser-dots .window-dot {
+  width: 7px;
+  height: 7px;
+}
+
+.browser-address-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 220px;
+}
+
+.browser-url {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.browser-live-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--accent-emerald);
+}
+
+.browser-repo-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
 .project-card-header {
   display: flex;
   align-items: flex-start;
@@ -1775,6 +1837,54 @@ body.dark .theme-toggle-btn .moon-icon {
 
 .skill-pill i {
   font-size: 1rem;
+}
+
+/* Core Engineering Principles Spotlight */
+.engineering-pillars-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 3.5rem;
+}
+
+@media (min-width: 768px) {
+  .engineering-pillars-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.pillar-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  box-shadow: var(--card-shadow);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.pillar-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-medium);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.pillar-icon {
+  font-size: 1.6rem;
+  margin-bottom: 0.85rem;
+}
+
+.pillar-card h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.45rem;
+}
+
+.pillar-card p {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
 }
 
 /* --------------------------------------------------------------------------

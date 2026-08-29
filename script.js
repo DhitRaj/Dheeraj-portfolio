@@ -360,8 +360,26 @@ document.addEventListener('DOMContentLoaded', () => {
            </a>`
         : `<span class="action-btn action-btn-details"><i class="fa-solid fa-lock"></i> Production Code</span>`;
 
+      const displayUrl = project.isLive && project.liveUrl
+        ? project.liveUrl.replace(/^https?:\/\//, '')
+        : `github.com/DhitRaj/${project.id}`;
+
       card.innerHTML = `
         <div>
+          <!-- Mini Browser Bar -->
+          <div class="project-browser-bar">
+            <div class="browser-dots">
+              <span class="window-dot red"></span>
+              <span class="window-dot yellow"></span>
+              <span class="window-dot green"></span>
+            </div>
+            <div class="browser-address-bar">
+              <i class="fa-solid fa-lock text-emerald"></i>
+              <span class="browser-url">${displayUrl}</span>
+            </div>
+            ${project.isLive ? '<span class="browser-live-tag"><span class="status-dot"></span> Live</span>' : '<span class="browser-repo-tag"><i class="fa-brands fa-github"></i> Git</span>'}
+          </div>
+
           <!-- Header -->
           <div class="project-card-header">
             <div class="project-brand">
@@ -1039,13 +1057,39 @@ export function levelOrder<T>(root: TreeNode<T> | null): T[][] {
     }
   });
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      [resumeModal, archModal, shareModal].forEach(modal => {
-        if (modal && modal.classList.contains('open')) closeModal(modal);
-      });
-    }
-  });
+  // --------------------------------------------------------------------------
+  // 15. 1-CLICK VCARD (CONTACT CARD) GENERATOR
+  // --------------------------------------------------------------------------
+  const downloadVCardBtn = document.getElementById('downloadVCardBtn');
+  if (downloadVCardBtn) {
+    downloadVCardBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const vCardContent = [
+        'BEGIN:VCARD',
+        'VERSION:3.0',
+        'FN:Dheeraj Yadav',
+        'N:Yadav;Dheeraj;;;',
+        'TITLE:Full Stack Developer',
+        'EMAIL;TYPE=INTERNET,PREF:dy516824@gmail.com',
+        'URL;TYPE=LinkedIn:https://www.linkedin.com/in/dhiraj-yadav-31688421b',
+        'URL;TYPE=GitHub:https://github.com/DhitRaj',
+        'NOTE:Full Stack Developer | Next.js, React, TypeScript, Node.js & REST APIs',
+        'END:VCARD'
+      ].join('\r\n');
+
+      const blob = new Blob([vCardContent], { type: 'text/vcard;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'Dheeraj_Yadav_Contact.vcf');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+
+      showToast('📇 Dheeraj\'s Contact Card (.vcf) saved!');
+    });
+  }
 
   // Initial Projects Render & Filters Setup
   renderProjectCards(PROJECTS_DATA);
